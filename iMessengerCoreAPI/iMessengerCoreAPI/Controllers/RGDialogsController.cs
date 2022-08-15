@@ -27,7 +27,7 @@ namespace iMessengerCoreAPI.Controllers
             List<Guid> result = await
                 _db.RGDialogsClients
                   .Where(x => clientIds.Contains(x.IDClient))
-                   .GroupBy(x => x.IDRGDialog, x => x.IDClient)
+                   .GroupBy(x => x.IDRGDialog)
                     .Where(x => x.Count() == clientIds.Count)
                     .Select(g => g.Key)
                     .ToListAsync();
