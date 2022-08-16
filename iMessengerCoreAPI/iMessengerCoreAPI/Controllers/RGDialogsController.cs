@@ -32,6 +32,11 @@ namespace iMessengerCoreAPI.Controllers
                     .Select(g => g.Key)
                     .ToListAsync();
 
+            if(result.Count == 0)
+            {
+                result.Add(Guid.Empty);
+                return result;
+            }
             return result;
         }
     }
